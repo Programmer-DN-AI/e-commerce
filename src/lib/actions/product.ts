@@ -225,6 +225,12 @@ export type FullProduct = {
 };
 
 export async function getProduct(productId: string): Promise<FullProduct | null> {
+  // Validate UUID format
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(productId)) {
+    return null; // Invalid UUID format
+  }
+
   const rows = await db
     .select({
       productId: products.id,
@@ -399,6 +405,12 @@ export type RecommendedProduct = {
 };
 
 export async function getProductReviews(productId: string): Promise<Review[]> {
+  // Validate UUID format
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(productId)) {
+    return []; // Invalid UUID format
+  }
+
   const rows = await db
     .select({
       id: reviews.id,
@@ -425,6 +437,12 @@ export async function getProductReviews(productId: string): Promise<Review[]> {
 }
 
 export async function getRecommendedProducts(productId: string): Promise<RecommendedProduct[]> {
+  // Validate UUID format
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(productId)) {
+    return []; // Invalid UUID format
+  }
+
   const base = await db
     .select({
       id: products.id,

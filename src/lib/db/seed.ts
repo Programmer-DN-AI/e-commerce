@@ -1,11 +1,18 @@
+import 'dotenv/config';
 import { db } from '@/lib/db';
-import {
-  genders, colors, sizes, brands, categories, collections, productCollections,
-  products, productVariants, productImages,
-  insertGenderSchema, insertColorSchema, insertSizeSchema, insertBrandSchema,
-  insertCategorySchema, insertCollectionSchema, insertProductSchema, insertVariantSchema, insertProductImageSchema,
-  type InsertProduct, type InsertVariant, type InsertProductImage,
-} from '@/lib/db/schema';
+import { genders, insertGenderSchema } from '@/lib/db/schema/filters/genders';
+import { colors, insertColorSchema } from '@/lib/db/schema/filters/colors';
+import { sizes, insertSizeSchema } from '@/lib/db/schema/filters/sizes';
+import { brands, insertBrandSchema } from '@/lib/db/schema/brands';
+import { categories, insertCategorySchema } from '@/lib/db/schema/categories';
+import { collections, insertCollectionSchema } from '@/lib/db/schema/collections';
+import { products, insertProductSchema } from '@/lib/db/schema/products';
+import { productVariants, insertVariantSchema } from '@/lib/db/schema/variants';
+import { productImages, insertProductImageSchema } from '@/lib/db/schema/images';
+import { productCollections } from '@/lib/db/schema/collections';
+import type { InsertProduct } from '@/lib/db/schema/products';
+import type { InsertVariant } from '@/lib/db/schema/variants';
+import type { InsertProductImage } from '@/lib/db/schema/images';
 import { eq } from 'drizzle-orm';
 import { mkdirSync, existsSync, cpSync } from 'fs';
 import { join, basename } from 'path';
