@@ -56,6 +56,12 @@ export default function Navbar() {
           >
             My Cart ({itemCount})
           </Link>
+          <Link 
+            href="/sign-in"
+            className="text-body text-dark-900 transition-colors hover:text-dark-700"
+          >
+            Sign In
+          </Link>
         </div>
 
         <button
@@ -99,6 +105,9 @@ export default function Navbar() {
               Search
             </button>
             <Link href="/cart" className="text-body">My Cart ({itemCount})</Link>
+          </li>
+          <li className="pt-2">
+            <Link href="/sign-in" className="text-body">Sign In</Link>
           </li>
         </ul>
       </div>
