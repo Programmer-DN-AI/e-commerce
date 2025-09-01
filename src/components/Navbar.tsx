@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SearchModal } from "@/components";
+import { useCartStore } from "@/store/cart";
 
 const NAV_LINKS = [
   { label: "Men", href: "/products?gender=men" },
@@ -16,6 +17,8 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const { getItemCount } = useCartStore();
+  const itemCount = getItemCount();
 
   return (
     <header className="sticky top-0 z-50 bg-light-100">
@@ -47,9 +50,12 @@ export default function Navbar() {
           >
             Search
           </button>
-          <button className="text-body text-dark-900 transition-colors hover:text-dark-700">
-            My Cart (2)
-          </button>
+          <Link 
+            href="/cart"
+            className="text-body text-dark-900 transition-colors hover:text-dark-700"
+          >
+            My Cart ({itemCount})
+          </Link>
         </div>
 
         <button
@@ -92,7 +98,7 @@ export default function Navbar() {
             >
               Search
             </button>
-            <button className="text-body">My Cart (2)</button>
+            <Link href="/cart" className="text-body">My Cart ({itemCount})</Link>
           </li>
         </ul>
       </div>

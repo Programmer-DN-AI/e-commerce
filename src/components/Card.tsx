@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { QuickAddToCart } from "@/components";
 
 
 
@@ -13,6 +14,8 @@ export interface CardProps {
   price?: string | number;
   href?: string;
   className?: string;
+  showQuickAdd?: boolean;
+  productId?: string;
 }
 
 
@@ -26,7 +29,8 @@ export default function Card({
   imageAlt = title,
   price,
   href,
-
+  showQuickAdd = false,
+  productId,
   className = "",
 }: CardProps) {
   const displayPrice =
@@ -43,6 +47,15 @@ export default function Card({
           sizes="(min-width: 1280px) 360px, (min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
+        {showQuickAdd && productId && price && (
+          <QuickAddToCart
+            productId={productId}
+            productName={title}
+            price={price}
+            image={imageSrc}
+            className="opacity-0 group-hover:opacity-100"
+          />
+        )}
       </div>
       <div className="p-4">
         <div className="mb-1 flex items-baseline justify-between gap-3">

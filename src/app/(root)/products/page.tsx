@@ -82,6 +82,8 @@ export default async function ProductsPage({
                     imageSrc={p.imageUrl ?? "/shoes/shoe-1.jpg"}
                     price={price}
                     href={`/products/${p.id}`}
+                    showQuickAdd={true}
+                    productId={p.id}
                   />
                 );
               })}

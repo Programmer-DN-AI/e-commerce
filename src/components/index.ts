@@ -8,3 +8,5 @@ export { default as SizePicker } from "./SizePicker";
 export { default as CollapsibleSection } from "./CollapsibleSection";
 export { default as SearchModal } from "./SearchModal";
 export { default as SearchInput } from "./SearchInput";
+export { default as AddToCartButton } from "./AddToCartButton";
+export { default as QuickAddToCart } from "./QuickAddToCart";
