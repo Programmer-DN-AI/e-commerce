@@ -16,10 +16,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [results, setResults] = useState<Array<{
     id: string;
     name: string;
-    subtitle?: string;
-    imageUrl?: string;
-    minPrice?: number;
-    maxPrice?: number;
+    subtitle?: string | null;
+    imageUrl: string | null;
+    minPrice: number | null;
+    maxPrice: number | null;
+    createdAt: Date;
   }>>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -141,11 +142,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
             )}
 
-            {!isLoading && hasSearched && results.length === 0 && query.trim() && (
-              <div className="text-center py-8">
-                <p className="text-body text-dark-700">No products found for "{query}"</p>
-              </div>
-            )}
+                         {!isLoading && hasSearched && results.length === 0 && query.trim() && (
+               <div className="text-center py-8">
+                 <p className="text-body text-dark-700">No products found for &quot;{query}&quot;</p>
+               </div>
+             )}
 
             {!isLoading && results.length > 0 && (
               <div>

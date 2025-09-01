@@ -10,7 +10,6 @@ const products = [
     meta: "6 Colour",
     price: 149.99,
     imageSrc: "/shoes/shoe-1.jpg",
-    badge: { label: "New", tone: "orange" as const },
   },
   {
     id: 2,
@@ -19,7 +18,6 @@ const products = [
     meta: "4 Colour",
     price: 129.99,
     imageSrc: "/shoes/shoe-2.webp",
-    badge: { label: "Hot", tone: "red" as const },
   },
   {
     id: 3,
@@ -28,7 +26,6 @@ const products = [
     meta: "6 Colour",
     price: 159.99,
     imageSrc: "/shoes/shoe-3.webp",
-    badge: { label: "Trending", tone: "green" as const },
   },
   {
     id: 4,
@@ -60,7 +57,6 @@ const Home = async () => {
               meta={p.meta}
               imageSrc={p.imageSrc}
               price={p.price}
-              badge={p.badge}
               href={`/products/${p.id}`}
             />
           ))}
