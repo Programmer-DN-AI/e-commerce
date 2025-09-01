@@ -55,7 +55,7 @@ export default async function CollectionsPage() {
           <div className="text-center py-12">
             <h2 className="text-heading-2 text-dark-900 mb-4">No Collections Available</h2>
             <p className="text-body text-dark-700 mb-6">
-              Collections will appear here once they're added to the database.
+            Collections will appear here once they&apos;re added to the database.
             </p>
             <Link
               href="/products"

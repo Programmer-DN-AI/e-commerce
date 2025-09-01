@@ -71,7 +71,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
               <Card
                 key={product.id}
                 title={product.name}
-                imageSrc={product.imageUrl || undefined}
+                imageSrc={product.imageUrl || "/placeholder-image.jpg"}
                 price={product.minPrice ? Number(product.minPrice) : undefined}
                 href={`/products/${product.id}`}
               />
@@ -81,7 +81,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           <div className="text-center py-12">
             <h2 className="text-heading-2 text-dark-900 mb-4">No Products in Collection</h2>
             <p className="text-body text-dark-700 mb-6">
-              This collection doesn't have any products yet.
+              This collection doesn&apos;t have any products yet.
             </p>
             <Link
               href="/products"
