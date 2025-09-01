@@ -83,11 +83,21 @@ export default function Navbar() {
             </li>
           ))}
           <li className="flex items-center justify-between pt-2">
-            <button className="text-body">Search</button>
+            <button 
+              onClick={() => {
+                setSearchOpen(true);
+                setOpen(false);
+              }}
+              className="text-body"
+            >
+              Search
+            </button>
             <button className="text-body">My Cart (2)</button>
           </li>
         </ul>
       </div>
+      
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

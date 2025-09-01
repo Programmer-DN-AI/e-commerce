@@ -13,7 +13,14 @@ interface SearchModalProps {
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<Array<{
+    id: string;
+    name: string;
+    subtitle?: string;
+    imageUrl?: string;
+    minPrice?: number;
+    maxPrice?: number;
+  }>>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);

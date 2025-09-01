@@ -1,4 +1,4 @@
-import { Card } from "@/components";
+import { Card, SearchInput } from "@/components";
 import Filters from "@/components/Filters";
 import Sort from "@/components/Sort";
 import { parseFilterParams } from "@/lib/utils/query";
@@ -30,11 +30,19 @@ export default async function ProductsPage({
     activeBadges.push(label);
   });
 
+  // Add search term to active badges if present
+  if (sp.search && typeof sp.search === 'string' && sp.search.trim()) {
+    activeBadges.push(`Search: "${sp.search}"`);
+  }
+
   return (
     <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <header className="flex items-center justify-between py-6">
-        <h1 className="text-heading-3 text-dark-900">New ({totalCount})</h1>
-        <Sort />
+      <header className="py-6">
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-heading-3 text-dark-900">New ({totalCount})</h1>
+          <Sort />
+        </div>
+        <SearchInput />
       </header>
 
       {activeBadges.length > 0 && (
