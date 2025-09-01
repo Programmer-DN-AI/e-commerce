@@ -51,15 +51,32 @@ export default function Footer() {
 
           <div className="flex gap-4 md:col-span-2 md:justify-end">
             {[
-              { src: "/x.svg", alt: "X" },
-              { src: "/facebook.svg", alt: "Facebook" },
-              { src: "/instagram.svg", alt: "Instagram" },
+              { 
+                src: "/x.svg", 
+                alt: "X", 
+                href: "https://twitter.com/nike",
+                label: "Follow us on X (Twitter)"
+              },
+              { 
+                src: "/facebook.svg", 
+                alt: "Facebook", 
+                href: "https://facebook.com/nike",
+                label: "Follow us on Facebook"
+              },
+              { 
+                src: "/instagram.svg", 
+                alt: "Instagram", 
+                href: "https://instagram.com/nike",
+                label: "Follow us on Instagram"
+              },
             ].map((s) => (
               <Link
                 key={s.alt}
-                href="#"
-                aria-label={s.alt}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-light-100"
+                href={s.href}
+                aria-label={s.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-light-100 transition-colors hover:bg-light-200"
               >
                 <Image src={s.src} alt={s.alt} width={18} height={18} />
               </Link>
